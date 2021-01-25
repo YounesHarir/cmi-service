@@ -1,0 +1,58 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://app.com/cmi-service"
+            targetNamespace="http://app.com/cmi-service"
+            elementFormDefault="qualified">
+    <!--client creation request approval-->
+    <xsd:element name="clientCreationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="clientInfo" type="tns:clientInfo" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--client creation response not definitive-->
+    <xsd:element name="clientCreationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="response" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--client Info model -->
+    <xsd:complexType name="clientInfo">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" />
+            <xsd:element name="firstName" type="xsd:string" />
+            <xsd:element name="lastName" type="xsd:string" />
+            <xsd:element name="address" type="xsd:string" />
+            <xsd:element name="cin" type="xsd:string" />
+            <xsd:element name="email" type="xsd:string" />
+            <xsd:element name="tel" type="xsd:string" />
+            <xsd:element name="account" type="tns:accountInfo" />
+            <xsd:element name="agency" type="tns:agencyInfo" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!--account Info model -->
+    <xsd:complexType name="accountInfo">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" />
+            <xsd:element name="accountNumber" type="xsd:string" />
+            <xsd:element name="amount" type="xsd:double" />
+            <xsd:element name="credit" type="xsd:double" />
+            <xsd:element name="strCreationDate" type="xsd:string" />
+            <xsd:element name="accountType" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!--agency Info model -->
+    <xsd:complexType name="agencyInfo">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" />
+            <xsd:element name="name" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
