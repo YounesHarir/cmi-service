@@ -1,0 +1,41 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://app.com/creanciers-service"
+            targetNamespace="http://app.com/creanciers-service"
+            elementFormDefault="qualified">
+
+    <xsd:element name="getListCreanciersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getListCreanciersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="listCreanciers" nillable="true" type="tns:creancierInfo"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="creancierInfo">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" />
+            <xsd:element name="nameCreancier" type="xsd:string" />
+            <xsd:element name="codeCreancier" type="xsd:string" />
+            <xsd:element name="categoryCreancier" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="listCreances" nillable="true" type="tns:creanceInfo"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="creanceInfo">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" />
+            <xsd:element name="nameCreance" type="xsd:string" />
+            <xsd:element name="codeCreance" type="xsd:string" />
+            <xsd:element name="endPoint" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

@@ -5,5 +5,5 @@
 // Généré le : 2021.01.27 à 11:56:54 PM WET 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://app.com/cmi-service", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.app.cmi_service;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://app.com/creanciers-service", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package com.app.creanciers_service;

@@ -21,7 +21,7 @@ public class CreationItemWriter implements ItemWriter<CreationOp> {
     @Override
     public void write(List<? extends CreationOp> list) throws Exception {
         for(CreationOp cr:list){
-            if(clientService.cmiChecker(cr.getClient().getTel()) == null){
+            if(clientService.cmiChecker(cr.getClient().getTel()) == null && cr.getStatus().equals("pending")){
                 cr.setStatus("closed");
                 creationOpRepository.save(cr);
                 clientService.createClient(cr.getClient());

@@ -1,16 +1,21 @@
 package com.app;
 
+import com.app.utils.PopulateDB;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+
+import java.util.Date;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @EnableFeignClients
@@ -23,11 +28,14 @@ public class AppApplication {
     @Autowired
     JobLauncher jobLauncher;
 
+    @Autowired
+    private PopulateDB populateDB;
+
     public static void main(String[] args) {
         SpringApplication.run(AppApplication.class, args);
     }
 
-    @Scheduled(cron = "0 2 * * ?")
+    @Scheduled(cron = "0 10 01 * * ?")
     public void createClientJob() throws Exception{
         JobParameters params = new JobParametersBuilder()
                 .addString("JobID", String.valueOf(System.currentTimeMillis()))
@@ -35,4 +43,10 @@ public class AppApplication {
         jobLauncher.run(clientCreationJob, params);
     }
 
+    @Bean
+    CommandLineRunner start(){
+        return args -> {
+            populateDB.populateCreancier();
+        };
+    }
 }

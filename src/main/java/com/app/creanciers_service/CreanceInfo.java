@@ -6,7 +6,7 @@
 //
 
 
-package com.app.cmi_service;
+package com.app.creanciers_service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,21 +15,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour accountInfo complex type.
+ * <p>Classe Java pour creanceInfo complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="accountInfo">
+ * &lt;complexType name="creanceInfo">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="accountNumber" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="amount" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *         &lt;element name="credit" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *         &lt;element name="strCreationDate" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="accountType" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="nameCreance" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="codeCreance" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="endPoint" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -39,26 +37,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "accountInfo", propOrder = {
+@XmlType(name = "creanceInfo", propOrder = {
     "id",
-    "accountNumber",
-    "amount",
-    "credit",
-    "strCreationDate",
-    "accountType"
+    "nameCreance",
+    "codeCreance",
+    "endPoint"
 })
-public class AccountInfo {
+public class CreanceInfo {
 
     @XmlElement(required = true)
     protected String id;
     @XmlElement(required = true)
-    protected String accountNumber;
-    protected double amount;
-    protected double credit;
+    protected String nameCreance;
     @XmlElement(required = true)
-    protected String strCreationDate;
+    protected String codeCreance;
     @XmlElement(required = true)
-    protected String accountType;
+    protected String endPoint;
 
     /**
      * Obtient la valeur de la propriété id.
@@ -85,107 +79,75 @@ public class AccountInfo {
     }
 
     /**
-     * Obtient la valeur de la propriété accountNumber.
+     * Obtient la valeur de la propriété nameCreance.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAccountNumber() {
-        return accountNumber;
+    public String getNameCreance() {
+        return nameCreance;
     }
 
     /**
-     * Définit la valeur de la propriété accountNumber.
+     * Définit la valeur de la propriété nameCreance.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAccountNumber(String value) {
-        this.accountNumber = value;
+    public void setNameCreance(String value) {
+        this.nameCreance = value;
     }
 
     /**
-     * Obtient la valeur de la propriété amount.
-     * 
-     */
-    public double getAmount() {
-        return amount;
-    }
-
-    /**
-     * Définit la valeur de la propriété amount.
-     * 
-     */
-    public void setAmount(double value) {
-        this.amount = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété credit.
-     * 
-     */
-    public double getCredit() {
-        return credit;
-    }
-
-    /**
-     * Définit la valeur de la propriété credit.
-     * 
-     */
-    public void setCredit(double value) {
-        this.credit = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété strCreationDate.
+     * Obtient la valeur de la propriété codeCreance.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getStrCreationDate() {
-        return strCreationDate;
+    public String getCodeCreance() {
+        return codeCreance;
     }
 
     /**
-     * Définit la valeur de la propriété strCreationDate.
+     * Définit la valeur de la propriété codeCreance.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setStrCreationDate(String value) {
-        this.strCreationDate = value;
+    public void setCodeCreance(String value) {
+        this.codeCreance = value;
     }
 
     /**
-     * Obtient la valeur de la propriété accountType.
+     * Obtient la valeur de la propriété endPoint.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAccountType() {
-        return accountType;
+    public String getEndPoint() {
+        return endPoint;
     }
 
     /**
-     * Définit la valeur de la propriété accountType.
+     * Définit la valeur de la propriété endPoint.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAccountType(String value) {
-        this.accountType = value;
+    public void setEndPoint(String value) {
+        this.endPoint = value;
     }
 
 }

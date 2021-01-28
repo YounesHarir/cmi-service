@@ -6,11 +6,10 @@
 //
 
 
-package com.app.cmi_service;
+package com.app.creanciers_service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="response" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,37 +33,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "response"
-})
-@XmlRootElement(name = "clientCreationResponse")
-public class ClientCreationResponse {
+@XmlType(name = "")
+@XmlRootElement(name = "getListCreanciersRequest")
+public class GetListCreanciersRequest {
 
-    @XmlElement(required = true)
-    protected String response;
-
-    /**
-     * Obtient la valeur de la propriété response.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getResponse() {
-        return response;
-    }
-
-    /**
-     * Définit la valeur de la propriété response.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setResponse(String value) {
-        this.response = value;
-    }
 
 }

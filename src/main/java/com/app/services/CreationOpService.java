@@ -5,6 +5,7 @@ import com.app.cmi_service.ClientInfo;
 import com.app.dao.CreationOpRepository;
 import com.app.entity.Account;
 import com.app.entity.Agency;
+import com.app.entity.Agent;
 import com.app.entity.Client;
 import com.app.entity.CreationOp;
 import com.app.utils.ClassExchanger;
@@ -22,9 +23,9 @@ public class CreationOpService {
     ClassExchanger classExchanger;
 
     public void createOperation(ClientInfo clientInfo){
-        Agency agency=classExchanger.generateAgency(clientInfo.getAgency());
+        Agent agent=classExchanger.generateAgent(clientInfo.getAgent());
         Account account=classExchanger.generateAccount(clientInfo.getAccount());
-        Client client=classExchanger.generateClient(clientInfo,account,agency);
+        Client client=classExchanger.generateClient(clientInfo,account,agent);
         CreationOp op=new CreationOp();
         op.setCreationDate(new Date());
         op.setClient(client);

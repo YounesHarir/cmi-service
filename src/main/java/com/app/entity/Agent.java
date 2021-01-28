@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
-public class Client {
+public class Agent {
     private String id;
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String cin;
+    private String first_name;
+    private String last_name;
+    private String phone_number;
+    private int identity_number;
+    private int patente_number;
     private String email;
-    private String tel;
-    private Account account;
-    private Agent agent;
+    private Agency agency;
+
 }
