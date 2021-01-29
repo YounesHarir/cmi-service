@@ -41,7 +41,7 @@ public class AppApplication {
         SpringApplication.run(AppApplication.class, args);
     }
 
-    @Scheduled(cron = "0 50 15 * * ?")
+    @Scheduled(cron = "0 03 16 * * ?")
     public void createClientJob() throws Exception{
         JobParameters params = new JobParametersBuilder()
                 .addString("JobID", String.valueOf(System.currentTimeMillis()))
