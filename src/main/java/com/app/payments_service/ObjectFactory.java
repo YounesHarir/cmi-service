@@ -6,7 +6,7 @@
 //
 
 
-package com.app.creanciers_service;
+package com.app.payments_service;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.app.creanciers_service package. 
+ * generated in the com.app.payments_service package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -30,42 +30,34 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.app.creanciers_service
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.app.payments_service
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link GetListCreanciersResponse }
+     * Create an instance of {@link GetFormsRequest }
      * 
      */
-    public GetListCreanciersResponse createGetListCreanciersResponse() {
-        return new GetListCreanciersResponse();
+    public GetFormsRequest createGetFormsRequest() {
+        return new GetFormsRequest();
     }
 
     /**
-     * Create an instance of {@link CreancierInfo }
+     * Create an instance of {@link GetFormsResponse }
      * 
      */
-    public CreancierInfo createCreancierInfo() {
-        return new CreancierInfo();
+    public GetFormsResponse createGetFormsResponse() {
+        return new GetFormsResponse();
     }
 
     /**
-     * Create an instance of {@link GetListCreanciersRequest }
+     * Create an instance of {@link FormInfo }
      * 
      */
-    public GetListCreanciersRequest createGetListCreanciersRequest() {
-        return new GetListCreanciersRequest();
-    }
-
-    /**
-     * Create an instance of {@link CreanceInfo }
-     * 
-     */
-    public CreanceInfo createCreanceInfo() {
-        return new CreanceInfo();
+    public FormInfo createFormInfo() {
+        return new FormInfo();
     }
 
 }

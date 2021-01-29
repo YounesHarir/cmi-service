@@ -6,7 +6,7 @@
 //
 
 
-package com.app.cmi_service;
+package com.app.payments_service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="clientInfo" type="{http://app.com/cmi-service}clientInfo"/>
+ *         &lt;element name="form" type="{http://app.com/payments-service}formInfo"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "clientInfo"
+    "form"
 })
-@XmlRootElement(name = "clientCreationRequest")
-public class ClientCreationRequest {
+@XmlRootElement(name = "getFormsResponse")
+public class GetFormsResponse {
 
     @XmlElement(required = true)
-    protected ClientInfo clientInfo;
+    protected FormInfo form;
 
     /**
-     * Obtient la valeur de la propriété clientInfo.
+     * Obtient la valeur de la propriété form.
      * 
      * @return
      *     possible object is
-     *     {@link ClientInfo }
+     *     {@link FormInfo }
      *     
      */
-    public ClientInfo getClientInfo() {
-        return clientInfo;
+    public FormInfo getForm() {
+        return form;
     }
 
     /**
-     * Définit la valeur de la propriété clientInfo.
+     * Définit la valeur de la propriété form.
      * 
      * @param value
      *     allowed object is
-     *     {@link ClientInfo }
+     *     {@link FormInfo }
      *     
      */
-    public void setClientInfo(ClientInfo value) {
-        this.clientInfo = value;
+    public void setForm(FormInfo value) {
+        this.form = value;
     }
 
 }

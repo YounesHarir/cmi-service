@@ -59,5 +59,21 @@ public class SoapWebServiceConfig extends WsConfigurerAdapter {
         return definition;
     }
 
+    @Bean("payment")
+    public XsdSchema paymentSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("payments.xsd"));
+    }
+
+    @Bean(name="paymentGen")
+    public DefaultWsdl11Definition paymentWsdl11Definition(@Qualifier("payment") XsdSchema paymentSchema) {
+
+        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+        definition.setSchema(paymentSchema);
+        definition.setLocationUri("/soapWS");
+        definition.setPortTypeName("PaymentsServicePort");
+        definition.setTargetNamespace("http://app.com/payments-service");
+        return definition;
+    }
+
 
 }

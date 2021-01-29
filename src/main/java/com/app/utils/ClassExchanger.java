@@ -7,10 +7,9 @@ import com.app.cmi_service.ClientInfo;
 import com.app.creanciers_service.CreanceInfo;
 import com.app.creanciers_service.CreancierInfo;
 import com.app.entity.*;
+import com.app.payments_service.FormInfo;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class ClassExchanger {
@@ -60,5 +59,13 @@ public class ClassExchanger {
         }
 
         return creancierInfo;
+    }
+
+    public FormInfo generateFormInfo(Form form){
+        FormInfo formInfo=new FormInfo();
+        formInfo.setId(form.getId());
+        formInfo.setLabel(form.getLabel());
+        formInfo.setCodeCreance(form.getCodeCreance());
+        return formInfo;
     }
 }

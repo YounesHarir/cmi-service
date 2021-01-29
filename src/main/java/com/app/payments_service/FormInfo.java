@@ -6,7 +6,7 @@
 //
 
 
-package com.app.cmi_service;
+package com.app.payments_service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,18 +15,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour agencyInfo complex type.
+ * <p>Classe Java pour formInfo complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="agencyInfo">
+ * &lt;complexType name="formInfo">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="label" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="codeCreance" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,90 +36,81 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "agencyInfo", propOrder = {
+@XmlType(name = "formInfo", propOrder = {
     "id",
-    "name",
-    "address"
+    "label",
+    "codeCreance"
 })
-public class AgencyInfo {
+public class FormInfo {
 
+    protected long id;
     @XmlElement(required = true)
-    protected String id;
+    protected String label;
     @XmlElement(required = true)
-    protected String name;
-    @XmlElement(required = true)
-    protected String address;
+    protected String codeCreance;
 
     /**
      * Obtient la valeur de la propriété id.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getId() {
+    public long getId() {
         return id;
     }
 
     /**
      * Définit la valeur de la propriété id.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setId(String value) {
+    public void setId(long value) {
         this.id = value;
     }
 
     /**
-     * Obtient la valeur de la propriété name.
+     * Obtient la valeur de la propriété label.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
     /**
-     * Définit la valeur de la propriété name.
+     * Définit la valeur de la propriété label.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setLabel(String value) {
+        this.label = value;
     }
 
     /**
-     * Obtient la valeur de la propriété address.
+     * Obtient la valeur de la propriété codeCreance.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAddress() {
-        return address;
+    public String getCodeCreance() {
+        return codeCreance;
     }
 
     /**
-     * Définit la valeur de la propriété address.
+     * Définit la valeur de la propriété codeCreance.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAddress(String value) {
-        this.address = value;
+    public void setCodeCreance(String value) {
+        this.codeCreance = value;
     }
 
 }

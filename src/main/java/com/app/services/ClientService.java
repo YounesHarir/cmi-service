@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "client-service",url = "http://localhost:8087/api/client")
+@FeignClient(name = "client-service",url = "http://ensaspay-client-service.herokuapp.com/api/client")
 public interface ClientService {
     @PostMapping("/create")
     public Client createClient(@RequestBody Client client);

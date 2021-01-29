@@ -1,5 +1,7 @@
 package com.app;
 
+import com.app.entity.Form;
+import com.app.services.FormService;
 import com.app.utils.PopulateDB;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
@@ -14,6 +16,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 
@@ -27,6 +30,9 @@ public class AppApplication {
 
     @Autowired
     JobLauncher jobLauncher;
+
+    @Autowired
+    FormService formService;
 
     @Autowired
     private PopulateDB populateDB;
@@ -49,4 +55,10 @@ public class AppApplication {
             populateDB.populateCreancier();
         };
     }
+
+    @Bean
+    RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
+
 }

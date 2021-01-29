@@ -6,7 +6,7 @@
 //
 
 
-package com.app.cmi_service;
+package com.app.payments_service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,7 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="clientInfo" type="{http://app.com/cmi-service}clientInfo"/>
+ *         &lt;element name="codeCreance" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="creance" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +37,63 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "clientInfo"
+    "codeCreance",
+    "creance"
 })
-@XmlRootElement(name = "clientCreationRequest")
-public class ClientCreationRequest {
+@XmlRootElement(name = "getFormsRequest")
+public class GetFormsRequest {
 
     @XmlElement(required = true)
-    protected ClientInfo clientInfo;
+    protected String codeCreance;
+    @XmlElement(required = true)
+    protected String creance;
 
     /**
-     * Obtient la valeur de la propriété clientInfo.
+     * Obtient la valeur de la propriété codeCreance.
      * 
      * @return
      *     possible object is
-     *     {@link ClientInfo }
+     *     {@link String }
      *     
      */
-    public ClientInfo getClientInfo() {
-        return clientInfo;
+    public String getCodeCreance() {
+        return codeCreance;
     }
 
     /**
-     * Définit la valeur de la propriété clientInfo.
+     * Définit la valeur de la propriété codeCreance.
      * 
      * @param value
      *     allowed object is
-     *     {@link ClientInfo }
+     *     {@link String }
      *     
      */
-    public void setClientInfo(ClientInfo value) {
-        this.clientInfo = value;
+    public void setCodeCreance(String value) {
+        this.codeCreance = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété creance.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCreance() {
+        return creance;
+    }
+
+    /**
+     * Définit la valeur de la propriété creance.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCreance(String value) {
+        this.creance = value;
     }
 
 }
