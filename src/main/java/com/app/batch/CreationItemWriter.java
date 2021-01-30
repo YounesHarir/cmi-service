@@ -24,7 +24,12 @@ public class CreationItemWriter implements ItemWriter<CreationOp> {
             if(clientService.cmiChecker(cr.getClient().getTel()) == null && cr.getStatus().equals("pending")){
                 cr.setStatus("closed");
                 creationOpRepository.save(cr);
-                clientService.createClient(cr.getClient());
+                try{
+                    clientService.createClient(cr.getClient());
+                }
+                catch(Exception e){
+                    System.out.println("Creation Error");
+                }
             }
         }
     }
