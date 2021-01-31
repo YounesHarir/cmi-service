@@ -25,8 +25,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="creancier" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="genericId" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="codeCreance" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="creance" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,16 +38,67 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "codeCreance",
-    "creance"
+    "creancier",
+    "genericId",
+    "codeCreance"
 })
-@XmlRootElement(name = "getFormsRequest")
-public class GetFormsRequest {
+@XmlRootElement(name = "getBillsRequest")
+public class GetBillsRequest {
 
     @XmlElement(required = true)
-    protected String codeCreance;
+    protected String creancier;
     @XmlElement(required = true)
-    protected String creance;
+    protected String genericId;
+    @XmlElement(required = true)
+    protected String codeCreance;
+
+    /**
+     * Obtient la valeur de la propriété creancier.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCreancier() {
+        return creancier;
+    }
+
+    /**
+     * Définit la valeur de la propriété creancier.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCreancier(String value) {
+        this.creancier = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété genericId.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getGenericId() {
+        return genericId;
+    }
+
+    /**
+     * Définit la valeur de la propriété genericId.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setGenericId(String value) {
+        this.genericId = value;
+    }
 
     /**
      * Obtient la valeur de la propriété codeCreance.
@@ -70,30 +122,6 @@ public class GetFormsRequest {
      */
     public void setCodeCreance(String value) {
         this.codeCreance = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété creance.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCreance() {
-        return creance;
-    }
-
-    /**
-     * Définit la valeur de la propriété creance.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCreance(String value) {
-        this.creance = value;
     }
 
 }

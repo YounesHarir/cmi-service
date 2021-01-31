@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="form" type="{http://app.com/payments-service}formInfo"/>
+ *         &lt;element name="clientPaymntInfo" type="{http://app.com/payments-service}clientPaymentInfo"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "form"
+    "clientPaymntInfo"
 })
-@XmlRootElement(name = "getFormsResponse")
-public class GetFormsResponse {
+@XmlRootElement(name = "getBillsResponse")
+public class GetBillsResponse {
 
     @XmlElement(required = true)
-    protected FormInfo form;
+    protected ClientPaymentInfo clientPaymntInfo;
 
     /**
-     * Obtient la valeur de la propriété form.
+     * Obtient la valeur de la propriété clientPaymntInfo.
      * 
      * @return
      *     possible object is
-     *     {@link FormInfo }
+     *     {@link ClientPaymentInfo }
      *     
      */
-    public FormInfo getForm() {
-        return form;
+    public ClientPaymentInfo getClientPaymntInfo() {
+        return clientPaymntInfo;
     }
 
     /**
-     * Définit la valeur de la propriété form.
+     * Définit la valeur de la propriété clientPaymntInfo.
      * 
      * @param value
      *     allowed object is
-     *     {@link FormInfo }
+     *     {@link ClientPaymentInfo }
      *     
      */
-    public void setForm(FormInfo value) {
-        this.form = value;
+    public void setClientPaymntInfo(ClientPaymentInfo value) {
+        this.clientPaymntInfo = value;
     }
 
 }

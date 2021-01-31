@@ -7,12 +7,18 @@ import com.app.cmi_service.ClientInfo;
 import com.app.creanciers_service.CreanceInfo;
 import com.app.creanciers_service.CreancierInfo;
 import com.app.entity.*;
+import com.app.payments_service.BillInfo;
+import com.app.payments_service.ClientPaymentInfo;
 import com.app.payments_service.FormInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
 @Component
 public class ClassExchanger {
+
+    @Autowired
+    DateConverter dateConverter;
 
     public Account generateAccount(AccountInfo accountInfo){
         Account account=new Account(null,accountInfo.getAccountNumber(),accountInfo.getAmount(),accountInfo.getCredit(),
@@ -68,4 +74,33 @@ public class ClassExchanger {
         formInfo.setCodeCreance(form.getCodeCreance());
         return formInfo;
     }
+
+    public BillInfo generateBillInfo(Bill bill){
+        BillInfo billInfo=new BillInfo();
+        billInfo.setId(bill.getId());
+        billInfo.setAmount(bill.getAmount());
+        billInfo.setBillingDate(null);
+        billInfo.setCodeCreance(bill.getCodeCreance());
+        billInfo.setPayed(bill.getPayed());
+        billInfo.setPayedDate(null);
+
+        return billInfo;
+    }
+
+    public ClientPaymentInfo generateClientPaymentInfo(ClientPayment clientPayment){
+        ClientPaymentInfo info=new ClientPaymentInfo();
+        info.setId(clientPayment.getId());
+        info.setFirstName(clientPayment.getFirstName());
+        info.setLastName(clientPayment.getLastName());
+        info.setFixeNumber(clientPayment.getFixeNumber());
+        info.setIdPayment(clientPayment.getIdPayment());
+        info.setPhoneNumber(clientPayment.getPhoneNumber());
+        for(Bill bill:clientPayment.getBills()){
+            info.getBills().add(generateBillInfo(bill));
+        }
+
+        return info;
+    }
+
+
 }
