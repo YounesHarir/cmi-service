@@ -13,6 +13,8 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+
 @Endpoint
 public class BillsController {
 
@@ -23,7 +25,7 @@ public class BillsController {
     @PayloadRoot(namespace = "http://app.com/payments-service",
             localPart = "getBillsRequest")
     @ResponsePayload
-    public GetBillsResponse getBills(@RequestPayload GetBillsRequest request) {
+    public GetBillsResponse getBills(@RequestPayload GetBillsRequest request) throws DatatypeConfigurationException {
         GetBillsResponse response=new GetBillsResponse();
         String creancier=request.getCreancier();
         String genericID=request.getGenericId();

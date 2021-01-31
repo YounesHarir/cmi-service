@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+
 @Service
 public class BillService {
 
@@ -22,7 +24,7 @@ public class BillService {
     @Autowired
     private ClassExchanger classExchanger;
 
-    public ClientPaymentInfo getBills(String creancier,String genericID,String codeCreance){
+    public ClientPaymentInfo getBills(String creancier,String genericID,String codeCreance) throws DatatypeConfigurationException {
         RestTemplate restTemplate=new RestTemplate();
         ClientPayment info=restTemplate.getForObject(url+creancier+"/payment/"+genericID+"/"+codeCreance,ClientPayment.class);
         return classExchanger.generateClientPaymentInfo(info);
