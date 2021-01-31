@@ -13,6 +13,8 @@ import com.app.payments_service.FormInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+
 
 @Component
 public class ClassExchanger {
@@ -75,11 +77,11 @@ public class ClassExchanger {
         return formInfo;
     }
 
-    public BillInfo generateBillInfo(Bill bill){
+    public BillInfo generateBillInfo(Bill bill) throws DatatypeConfigurationException {
         BillInfo billInfo=new BillInfo();
         billInfo.setId(bill.getId());
         billInfo.setAmount(bill.getAmount());
-        billInfo.setBillingDate(null);
+        billInfo.setBillingDate(dateConverter.convertDateToXMLGregorianCalendar(bill.getBillingDate()));
         billInfo.setCodeCreance(bill.getCodeCreance());
         billInfo.setPayed(bill.getPayed());
         billInfo.setPayedDate(null);
@@ -87,7 +89,7 @@ public class ClassExchanger {
         return billInfo;
     }
 
-    public ClientPaymentInfo generateClientPaymentInfo(ClientPayment clientPayment){
+    public ClientPaymentInfo generateClientPaymentInfo(ClientPayment clientPayment) throws DatatypeConfigurationException {
         ClientPaymentInfo info=new ClientPaymentInfo();
         info.setId(clientPayment.getId());
         info.setFirstName(clientPayment.getFirstName());
