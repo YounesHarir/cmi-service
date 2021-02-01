@@ -30,7 +30,7 @@ public class PaymentController {
     }
 
     @PayloadRoot(namespace = "http://app.com/payments-service",
-            localPart = "getFormsRequest")
+            localPart = "paymentRequest")
     @ResponsePayload
     public PaymentResponse payBill(@RequestPayload PaymentRequest request) {
         PaymentResponse response=new PaymentResponse();

@@ -21,7 +21,7 @@ public class PaymentService {
         try{
             String token="Bearer "+authService.getAccessToken();
             AddCreditRequest request=new AddCreditRequest(accountID,billInfo.getAmount());
-            accountService.addCredit(request);
+            accountService.addCredit(token,request);
             PaymentOp paymentOp=new PaymentOp(null,exchanger.generateBill(billInfo),accountID);
             repo.save(paymentOp);
         }
