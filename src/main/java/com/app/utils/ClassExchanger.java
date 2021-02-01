@@ -108,7 +108,7 @@ public class ClassExchanger {
 
     public Bill generateBill(BillInfo info){
         Bill bill=new Bill(info.getId(),info.getAmount(),
-                converter.convertToDate(info.getBillingDate()),converter.convertToDate(info.getPayedDate()),false,info.getCodeCreance());
+                null,null,false,info.getCodeCreance());
         return bill;
     }
 

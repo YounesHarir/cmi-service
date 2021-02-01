@@ -21,20 +21,14 @@ public class PaymentService {
         String token="";
         try{
             token="Bearer "+authService.getAccessToken();
+            AddCreditRequest request=new AddCreditRequest(accountID,billInfo.getAmount());
+            accountService.addCredit(token,request);
+            PaymentOp paymentOp=new PaymentOp(null,exchanger.generateBill(billInfo),accountID);
+            repo.save(paymentOp);
         }
         catch(Exception e){
             System.out.println("Error auth");
         }
-
-        try{
-            AddCreditRequest request=new AddCreditRequest(accountID,billInfo.getAmount());
-            accountService.addCredit(token,request);
-        }
-        catch(Exception e){
-            System.out.println("Error service");
-        }
-        PaymentOp paymentOp=new PaymentOp(null,exchanger.generateBill(billInfo),accountID);
-        repo.save(paymentOp);
     }
 
 
