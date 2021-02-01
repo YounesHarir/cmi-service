@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-@FeignClient(name = "account-service",url = "")
+@FeignClient(name = "account-service",url = "https://ensaspay-zuul-gateway.herokuapp.com/api/account")
 public interface AccountService {
     @PostMapping("/payment/addCredit")
     public String addCredit(@RequestHeader("Authorization") String token, @RequestBody AddCreditRequest addCreditRequest);
