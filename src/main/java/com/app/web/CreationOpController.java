@@ -19,6 +19,7 @@ public class CreationOpController{
             localPart = "clientCreationRequest")
     @ResponsePayload
     public ClientCreationResponse createAccount(@RequestPayload ClientCreationRequest request) {
+        System.out.println("tesssting");
         creationOpService.createOperation(request.getClientInfo());
         ClientCreationResponse response=new ClientCreationResponse();
         response.setResponse("Request is saved we will be in touch later");

@@ -23,6 +23,7 @@ public class CreationOpService {
     ClassExchanger classExchanger;
 
     public void createOperation(ClientInfo clientInfo){
+        System.out.println("hmmmm");
         Agent agent=classExchanger.generateAgent(clientInfo.getAgent());
         Account account=classExchanger.generateAccount(clientInfo.getAccount());
         Client client=classExchanger.generateClient(clientInfo,account,agent);
