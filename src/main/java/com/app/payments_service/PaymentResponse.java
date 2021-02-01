@@ -6,7 +6,7 @@
 //
 
 
-package com.app.cmi_service;
+package com.app.payments_service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -38,8 +38,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "response"
 })
-@XmlRootElement(name = "clientCreationResponse")
-public class ClientCreationResponse {
+@XmlRootElement(name = "paymentResponse")
+public class PaymentResponse {
 
     @XmlElement(required = true)
     protected String response;

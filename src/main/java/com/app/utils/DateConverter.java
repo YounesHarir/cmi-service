@@ -23,4 +23,8 @@ public class DateConverter {
         return date2;
     }
 
+    public Date convertToDate(XMLGregorianCalendar calendar){
+        return calendar.toGregorianCalendar().getTime();
+    }
+
 }

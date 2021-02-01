@@ -71,7 +71,23 @@
         </xsd:sequence>
     </xsd:complexType>
 
+    <!-- payment request -->
+    <xsd:element name="paymentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="bill" type="tns:billInfo" />
+                <xsd:element name="accountID" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 
+    <xsd:element name="paymentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="response" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 
 
 </xsd:schema>

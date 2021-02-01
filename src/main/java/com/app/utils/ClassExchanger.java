@@ -21,6 +21,8 @@ public class ClassExchanger {
 
     @Autowired
     DateConverter dateConverter;
+    @Autowired
+    private DateConverter converter;
 
     public Account generateAccount(AccountInfo accountInfo){
         Account account=new Account(null,accountInfo.getAccountNumber(),accountInfo.getAmount(),accountInfo.getCredit(),
@@ -102,6 +104,12 @@ public class ClassExchanger {
         }
 
         return info;
+    }
+
+    public Bill generateBill(BillInfo info){
+        Bill bill=new Bill(info.getId(),info.getAmount(),
+                converter.convertToDate(info.getBillingDate()),converter.convertToDate(info.getPayedDate()),false,info.getCodeCreance());
+        return bill;
     }
 
 
