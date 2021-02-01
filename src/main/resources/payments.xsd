@@ -67,6 +67,7 @@
             <xsd:element name="billingDate" type="xsd:dateTime" />
             <xsd:element name="payedDate" type="xsd:dateTime" />
             <xsd:element name="payed" type="xsd:boolean" />
+            <xsd:element name="isBatched" type="xsd:boolean" />
             <xsd:element name="codeCreance" type="xsd:string" />
         </xsd:sequence>
     </xsd:complexType>
@@ -77,6 +78,7 @@
             <xsd:sequence>
                 <xsd:element name="bill" type="tns:billInfo" />
                 <xsd:element name="accountID" type="xsd:string" />
+                <xsd:element name="creancier" type="xsd:string" />
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>

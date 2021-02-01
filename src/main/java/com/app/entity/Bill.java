@@ -11,6 +11,7 @@ public class Bill {
     private Date billingDate;
     private Date payedDate;
     private boolean payed;
+    private boolean isBatched;
     private String codeCreance;
 
     public boolean getPayed(){

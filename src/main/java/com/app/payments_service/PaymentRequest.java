@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2021.02.01 à 06:16:58 PM WET 
+// Généré le : 2021.02.01 à 11:50:28 PM WET 
 //
 
 
@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="bill" type="{http://app.com/payments-service}billInfo"/>
  *         &lt;element name="accountID" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="creancier" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,7 +39,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "bill",
-    "accountID"
+    "accountID",
+    "creancier"
 })
 @XmlRootElement(name = "paymentRequest")
 public class PaymentRequest {
@@ -47,6 +49,8 @@ public class PaymentRequest {
     protected BillInfo bill;
     @XmlElement(required = true)
     protected String accountID;
+    @XmlElement(required = true)
+    protected String creancier;
 
     /**
      * Obtient la valeur de la propriété bill.
@@ -94,6 +98,30 @@ public class PaymentRequest {
      */
     public void setAccountID(String value) {
         this.accountID = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété creancier.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCreancier() {
+        return creancier;
+    }
+
+    /**
+     * Définit la valeur de la propriété creancier.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCreancier(String value) {
+        this.creancier = value;
     }
 
 }

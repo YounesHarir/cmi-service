@@ -1,5 +1,6 @@
 package com.app.services;
 
+import com.app.entity.Bill;
 import com.app.entity.ClientPayment;
 import com.app.entity.Form;
 import com.app.payments_service.ClientPaymentInfo;
@@ -25,8 +26,17 @@ public class BillService {
     private ClassExchanger classExchanger;
 
     public ClientPaymentInfo getBills(String creancier,String genericID,String codeCreance) throws DatatypeConfigurationException {
-        RestTemplate restTemplate=new RestTemplate();
         ClientPayment info=restTemplate.getForObject(url+creancier+"/payment/"+genericID+"/"+codeCreance,ClientPayment.class);
         return classExchanger.generateClientPaymentInfo(info);
+    }
+
+    public Bill payBill(Bill bill,String creancier){
+        Bill response=restTemplate.getForObject(url+creancier+"/bill/pay/"+bill.getId(),Bill.class);
+        return response;
+    }
+
+    public Bill batchBill(Bill bill,String creancier){
+        Bill response=restTemplate.getForObject(url+creancier+"/bill/batch/"+bill.getId(),Bill.class);
+        return response;
     }
 }

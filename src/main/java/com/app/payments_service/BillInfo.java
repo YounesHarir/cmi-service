@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2021.02.01 à 06:16:58 PM WET 
+// Généré le : 2021.02.01 à 11:50:28 PM WET 
 //
 
 
@@ -31,6 +31,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="billingDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *         &lt;element name="payedDate" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *         &lt;element name="payed" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="isBatched" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="codeCreance" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -47,6 +48,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "billingDate",
     "payedDate",
     "payed",
+    "isBatched",
     "codeCreance"
 })
 public class BillInfo {
@@ -60,6 +62,7 @@ public class BillInfo {
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar payedDate;
     protected boolean payed;
+    protected boolean isBatched;
     @XmlElement(required = true)
     protected String codeCreance;
 
@@ -157,6 +160,22 @@ public class BillInfo {
      */
     public void setPayed(boolean value) {
         this.payed = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété isBatched.
+     * 
+     */
+    public boolean isIsBatched() {
+        return isBatched;
+    }
+
+    /**
+     * Définit la valeur de la propriété isBatched.
+     * 
+     */
+    public void setIsBatched(boolean value) {
+        this.isBatched = value;
     }
 
     /**

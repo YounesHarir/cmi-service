@@ -34,7 +34,7 @@ public class PaymentController {
     @ResponsePayload
     public PaymentResponse payBill(@RequestPayload PaymentRequest request) {
         PaymentResponse response=new PaymentResponse();
-        paymentService.paymentRequest(request.getBill(),request.getAccountID());
+        paymentService.paymentRequest(request.getBill(),request.getAccountID(),request.getCreancier());
         response.setResponse("Request waiting for approval");
         return response;
     }

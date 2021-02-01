@@ -17,13 +17,13 @@ public class PaymentService {
     @Autowired private AuthService authService;
     @Autowired private ClassExchanger exchanger;
 
-    public void paymentRequest(BillInfo billInfo,String accountID){
+    public void paymentRequest(BillInfo billInfo,String accountID,String creancier){
         String token="";
         try{
             token="Bearer "+authService.getAccessToken();
             AddCreditRequest request=new AddCreditRequest(accountID,billInfo.getAmount());
             accountService.addCredit(token,request);
-            PaymentOp paymentOp=new PaymentOp(null,exchanger.generateBill(billInfo),accountID);
+            PaymentOp paymentOp=new PaymentOp(null,exchanger.generateBill(billInfo),accountID,creancier,"pending");
             repo.save(paymentOp);
         }
         catch(Exception e){

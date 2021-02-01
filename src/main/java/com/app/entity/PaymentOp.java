@@ -14,4 +14,6 @@ public class PaymentOp {
     private String id;
     private Bill bill;
     private String accountID;
+    private String creancier;
+    private String status;
 }
