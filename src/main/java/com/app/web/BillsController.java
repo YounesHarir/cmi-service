@@ -32,6 +32,5 @@ public class BillsController {
         String codeCreance=request.getCodeCreance();
         response.setClientPaymntInfo(billService.getBills(creancier,genericID,codeCreance));
         return response;
-
     }
 }
