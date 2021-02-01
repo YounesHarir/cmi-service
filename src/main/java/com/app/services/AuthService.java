@@ -14,7 +14,7 @@ public class AuthService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${gatewayUrl}")
+    @Value("${gateway-service}")
     private String url;
 
     public String getAccessToken(){
