@@ -40,7 +40,7 @@ public class PaymentController {
     @ResponsePayload
     public PaymentResponse payBill(@RequestPayload PaymentRequest request) throws DatatypeConfigurationException {
         PaymentResponse response=new PaymentResponse();
-        Bill bill = billService.getBill(request.getBillID(),request.getCreancier());
+        Bill bill = billService.getBill(request.getCreancier(),request.getBillID());
         paymentService.paymentRequest(bill,request.getAccountID(),request.getCreancier());
         response.setResponse("Request waiting for approval");
         return response;

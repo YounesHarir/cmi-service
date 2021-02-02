@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2021.02.02 à 12:10:42 AM WET 
+// Généré le : 2021.02.02 à 12:25:41 AM WET 
 //
 
 
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="billID" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="billID" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="accountID" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="creancier" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
@@ -45,8 +45,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "paymentRequest")
 public class PaymentRequest {
 
-    @XmlElement(required = true)
-    protected String billID;
+    protected long billID;
     @XmlElement(required = true)
     protected String accountID;
     @XmlElement(required = true)
@@ -55,24 +54,16 @@ public class PaymentRequest {
     /**
      * Obtient la valeur de la propriété billID.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getBillID() {
+    public long getBillID() {
         return billID;
     }
 
     /**
      * Définit la valeur de la propriété billID.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setBillID(String value) {
+    public void setBillID(long value) {
         this.billID = value;
     }
 

@@ -76,7 +76,7 @@
     <xsd:element name="paymentRequest">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="billID" type="xsd:string" />
+                <xsd:element name="billID" type="xsd:long" />
                 <xsd:element name="accountID" type="xsd:string" />
                 <xsd:element name="creancier" type="xsd:string" />
             </xsd:sequence>

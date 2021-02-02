@@ -30,7 +30,7 @@ public class BillService {
         return classExchanger.generateClientPaymentInfo(info);
     }
 
-    public Bill getBill(String creancier,String id){
+    public Bill getBill(String creancier,long id){
         Bill bill=restTemplate.getForObject(url+creancier+"/bill/"+id,Bill.class);
         return bill;
     }
