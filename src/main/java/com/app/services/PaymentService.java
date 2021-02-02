@@ -25,7 +25,8 @@ public class PaymentService {
             System.out.println(accountID);
             System.out.println(bill.getAmount());
             AddCreditRequest request=new AddCreditRequest(accountID,bill.getAmount());
-            accountService.addCredit(token,request);
+            String text=accountService.addCredit(token,request);
+            System.out.println(text);
             PaymentOp paymentOp=new PaymentOp(null,bill,accountID,creancier,"pending");
             repo.save(paymentOp);
         }
