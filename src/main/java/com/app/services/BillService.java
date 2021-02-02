@@ -30,6 +30,11 @@ public class BillService {
         return classExchanger.generateClientPaymentInfo(info);
     }
 
+    public Bill getBill(String creancier,String id){
+        Bill bill=restTemplate.getForObject(url+creancier+"/bill/"+id,Bill.class);
+        return bill;
+    }
+
     public Bill payBill(Bill bill,String creancier){
         Bill response=restTemplate.getForObject(url+creancier+"/bill/pay/"+bill.getId(),Bill.class);
         return response;

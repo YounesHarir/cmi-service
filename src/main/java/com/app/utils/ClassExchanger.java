@@ -86,6 +86,7 @@ public class ClassExchanger {
         billInfo.setBillingDate(dateConverter.convertDateToXMLGregorianCalendar(bill.getBillingDate()));
         billInfo.setCodeCreance(bill.getCodeCreance());
         billInfo.setPayed(bill.getPayed());
+        billInfo.setIsBatched(bill.isBatched());
         billInfo.setPayedDate(null);
 
         return billInfo;

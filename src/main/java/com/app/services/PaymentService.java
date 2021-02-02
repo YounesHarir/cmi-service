@@ -1,6 +1,7 @@
 package com.app.services;
 
 import com.app.dao.PaymentOpRespository;
+import com.app.entity.Bill;
 import com.app.entity.PaymentOp;
 import com.app.payments_service.BillInfo;
 import com.app.utils.AddCreditRequest;
@@ -17,13 +18,13 @@ public class PaymentService {
     @Autowired private AuthService authService;
     @Autowired private ClassExchanger exchanger;
 
-    public void paymentRequest(BillInfo billInfo,String accountID,String creancier){
+    public void paymentRequest(Bill bill, String accountID, String creancier){
         String token="";
         try{
             token="Bearer "+authService.getAccessToken();
-            AddCreditRequest request=new AddCreditRequest(accountID,billInfo.getAmount());
+            AddCreditRequest request=new AddCreditRequest(accountID,bill.getAmount());
             accountService.addCredit(token,request);
-            PaymentOp paymentOp=new PaymentOp(null,exchanger.generateBill(billInfo),accountID,creancier,"pending");
+            PaymentOp paymentOp=new PaymentOp(null,bill,accountID,creancier,"pending");
             repo.save(paymentOp);
         }
         catch(Exception e){

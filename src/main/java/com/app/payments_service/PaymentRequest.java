@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2021.02.01 à 11:50:28 PM WET 
+// Généré le : 2021.02.02 à 12:10:42 AM WET 
 //
 
 
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="bill" type="{http://app.com/payments-service}billInfo"/>
+ *         &lt;element name="billID" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="accountID" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="creancier" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "bill",
+    "billID",
     "accountID",
     "creancier"
 })
@@ -46,34 +46,34 @@ import javax.xml.bind.annotation.XmlType;
 public class PaymentRequest {
 
     @XmlElement(required = true)
-    protected BillInfo bill;
+    protected String billID;
     @XmlElement(required = true)
     protected String accountID;
     @XmlElement(required = true)
     protected String creancier;
 
     /**
-     * Obtient la valeur de la propriété bill.
+     * Obtient la valeur de la propriété billID.
      * 
      * @return
      *     possible object is
-     *     {@link BillInfo }
+     *     {@link String }
      *     
      */
-    public BillInfo getBill() {
-        return bill;
+    public String getBillID() {
+        return billID;
     }
 
     /**
-     * Définit la valeur de la propriété bill.
+     * Définit la valeur de la propriété billID.
      * 
      * @param value
      *     allowed object is
-     *     {@link BillInfo }
+     *     {@link String }
      *     
      */
-    public void setBill(BillInfo value) {
-        this.bill = value;
+    public void setBillID(String value) {
+        this.billID = value;
     }
 
     /**
