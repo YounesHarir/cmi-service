@@ -22,6 +22,8 @@ public class PaymentService {
         String token="";
         try{
             token="Bearer "+authService.getAccessToken();
+            System.out.println(accountID);
+            System.out.println(bill.getAmount());
             AddCreditRequest request=new AddCreditRequest(accountID,bill.getAmount());
             accountService.addCredit(token,request);
             PaymentOp paymentOp=new PaymentOp(null,bill,accountID,creancier,"pending");
