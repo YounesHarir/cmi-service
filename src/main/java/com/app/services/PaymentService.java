@@ -16,7 +16,7 @@ public class PaymentService {
     @Autowired private PaymentOpRespository repo;
     @Autowired private AccountService accountService;
     @Autowired private AuthService authService;
-    @Autowired private ClassExchanger exchanger;
+    @Autowired private BillService billService;
 
     public void paymentRequest(Bill bill, String accountID, String creancier){
         String token="";
@@ -29,6 +29,7 @@ public class PaymentService {
             System.out.println(text);
             PaymentOp paymentOp=new PaymentOp(null,bill,accountID,creancier,"pending");
             repo.save(paymentOp);
+            billService.batchBill(bill,creancier);
         }
         catch(Exception e){
             System.out.println("Error auth");

@@ -8,6 +8,7 @@ import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,20 +26,26 @@ import java.util.Date;
 @EnableScheduling
 public class AppApplication {
 
-    @Autowired
-    private Job clientCreationJob;
-
-    @Autowired
-    JobLauncher jobLauncher;
-
-    @Autowired
-    FormService formService;
-
-    @Autowired
-    private PopulateDB populateDB;
+    @Autowired @Qualifier("clientJob") private Job clientCreationJob;
+    @Autowired @Qualifier("paymentJob") private Job paymentJob;
+    @Autowired JobLauncher jobLauncher;
+    @Autowired FormService formService;
+    @Autowired private PopulateDB populateDB;
 
     public static void main(String[] args) {
         SpringApplication.run(AppApplication.class, args);
+    }
+
+    @Bean
+    RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
+
+    @Bean
+    CommandLineRunner start(){
+        return args -> {
+            populateDB.populateCreancier();
+        };
     }
 
     //@Scheduled(cron = "0 21 16 * * ?")
@@ -49,16 +56,11 @@ public class AppApplication {
         jobLauncher.run(clientCreationJob, params);
     }
 
-    @Bean
-    CommandLineRunner start(){
-        return args -> {
-            populateDB.populateCreancier();
-        };
-    }
-
-    @Bean
-    RestTemplate restTemplate(){
-        return new RestTemplate();
+    public void paymntJob() throws Exception{
+        JobParameters params = new JobParametersBuilder()
+                .addString("JobID", String.valueOf(System.currentTimeMillis()))
+                .toJobParameters();
+        jobLauncher.run(paymentJob, params);
     }
 
 }

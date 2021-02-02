@@ -9,9 +9,11 @@ import com.app.services.BillService;
 import com.app.utils.PaymentRequest;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class PaymentItemWriter implements ItemWriter<PaymentOp> {
 
     @Autowired private BillService billService;
@@ -23,13 +25,13 @@ public class PaymentItemWriter implements ItemWriter<PaymentOp> {
     public void write(List<? extends PaymentOp> list) throws Exception {
         String token="Bearer " + authService.getAccessToken();
         for(PaymentOp payment:list){
-            if(payment.getStatus().equals("pending")){
+            if(payment.getStatus().equals("pending") && !payment.getBill().getPayed()){
                 // if success set bill to payed
                 Bill bill=billService.payBill(payment.getBill(),payment.getCreancier());
                 // if success set payment to closed
                 payment.getBill().setPayed(true);
                 //take credit from amount and save historique in account service
-                PaymentRequest paymentRequest=new PaymentRequest(bill,payment.getCreancier(),payment.getAccountID());
+                PaymentRequest paymentRequest=new PaymentRequest(payment.getBill(),payment.getCreancier(),payment.getAccountID());
                 accountService.payBill(token,paymentRequest);
 
                 payment.setStatus("closed");
